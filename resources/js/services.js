@@ -10,5 +10,5 @@ myApp.value('version', '0.1');
 
 
 myApp.factory('travelDest', function(Restangular){
-	Restangular.all('destinations');
+	return Restangular.all('destinations');
 });

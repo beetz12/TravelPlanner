@@ -32,7 +32,17 @@
 
 /* custom styles */
 
-html {
-	
-	margin: 
+body{
+    margin-top:40px;
+}
+#gridBtnContainer {
+    height: 700px;
+    width: 800px;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 400px;
+    width: 800px;
+
 }

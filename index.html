@@ -13,26 +13,42 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="resources/bower/html5-boilerplate/css/normalize.css">
 		<link rel="stylesheet" href="resources/bower/html5-boilerplate/css/main.css">
-		<link rel = "stylesheet" href="resources/bower/bootstrap/dist/css/bootstrap.css">		
+		<link rel = "stylesheet" href="resources/bower/bootstrap/dist/css/bootstrap.css">
+        <link rel = "stylesheet" href="resources/bower/ng-grid/ng-grid.css">
 		<script src="resources/bower/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
 		<link rel="stylesheet" href="resources/css/app.css"/>
 	</head>
 	<body>
 	
-	<div class="container" ng-controller="travelController">
-	
- 	<h2>{{test}}</h2>
+	<div class="container" ng-controller="TravelDestCtrl">
+
+        <div ng-view></div>
+
+
+
+
+        <div id="gridBtnContainer">
+            <button id="editBtn" type="button" class="btn btn-success pull-right" ng-click="EditClick(gridOptions);">Edit</button>
+            <br /><br />
+        <!-- ng-grid here -->
+        <div class="gridStyle" ng-grid="gridOptions" class="pull-right">
+        </div>
+
+
 		<!--[if lt IE 7]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<div ng-view></div>
+	    </div>
 
-		<div>
-			Angular seed app: v<span app-version></span>
-		</div>
+        <h1>Selected Items</h1>
+        <pre>{{gridOptions.selectedItems}}</pre>
 
-	</div>
+
+        <div>
+            Angular seed app: v<span app-version></span>
+        </div>
 		<!-- In production use:
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 		-->
