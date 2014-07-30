@@ -2,10 +2,11 @@
 
 /* Controllers */
 
-  myApp.controller('DestListCtrl', function ($scope, $location, travelDest){
-  	$scope.myData = travelDest.getList().then(function (destList)
+  myApp.controller('DestListCtrl', function ($scope, $location, destData, notifier, toastr){
+
+      destData.getAllDests().getList().then(function (destList)
       {
-          $scope.travelDest = destList[0];
+          $scope.travelDest = destList;
       });
 
       $scope.gridOptions = { data: 'travelDest',
@@ -14,7 +15,6 @@
           multiSelect: false, selectedItems: []};
 
       $scope.EditClick = function (rows){
-          console.log('edit clicked');
           if(!rows || rows.length < 1){
               alert('at least 1 row must be selected');
           } else {
@@ -22,9 +22,62 @@
           }
       };
 
+      $scope.notifierTest = function(){
+          notifier.notify('You have been notified');
+      };
+
   });
 
-myApp.controller('DestEditCtrl', function($scope, $route){
-    $scope.dest = {"name": "canada", "description": "french speaking country"};
-    console.log($route.current.foo);
+/*myApp.controller('DestEditCtrl', function($scope, $route, $location, destData){
+
+    $route.current.locals.dest.get().then(function (myDest){
+        $scope.dest = myDest;
+    });
+
+    $scope.SaveDest = function(){
+        if(form.$valid) {
+            console.log(dest);
+            //destData.save(dest);
+            $scope.dest.put().then(function() {
+                $location.path('/');
+            });
+        }
+    }
+
+    $scope.CancelEdit = function(){
+        $location.path('/');
+    }
+
+
+});*/
+
+myApp.controller('DestEditCtrl', function($scope, $route, $location, Restangular, dest){
+
+    var original = dest;
+    $scope.dest = Restangular.copy(original);
+    //dest.get().then(function (myDest){
+        var original = dest;
+        $scope.dest = Restangular.copy(original);
+    //});
+    console.log('foo');
+    //console.log(dest);
+
+
+
+
+    $scope.SaveDest = function(){
+
+            //console.log(dest);
+            //destData.save(dest);
+            $scope.dest.put().then(function() {
+                $location.path('/');
+            });
+
+    }
+
+    $scope.CancelEdit = function(){
+        $location.path('/');
+    }
+
+
 });

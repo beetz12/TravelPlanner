@@ -15,40 +15,20 @@
 		<link rel="stylesheet" href="resources/bower/html5-boilerplate/css/main.css">
 		<link rel = "stylesheet" href="resources/bower/bootstrap/dist/css/bootstrap.css">
         <link rel = "stylesheet" href="resources/bower/ng-grid/ng-grid.css">
+        <link rel = "stylesheet" href="resources/bower/toastr/toastr.css">
 		<script src="resources/bower/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 
 		<link rel="stylesheet" href="resources/css/app.css"/>
 	</head>
 	<body>
 	
-	<div class="container" ng-controller="TravelDestCtrl">
-
+	<div class="container">
         <div ng-view></div>
-
-
-
-
-        <div id="gridBtnContainer">
-            <button id="editBtn" type="button" class="btn btn-success pull-right" ng-click="EditClick(gridOptions);">Edit</button>
-            <br /><br />
-        <!-- ng-grid here -->
-        <div class="gridStyle" ng-grid="gridOptions" class="pull-right">
-        </div>
-
 
 		<!--[if lt IE 7]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-	    </div>
-
-        <h1>Selected Items</h1>
-        <pre>{{gridOptions.selectedItems}}</pre>
-
-
-        <div>
-            Angular seed app: v<span app-version></span>
-        </div>
 		<!-- In production use:
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 		-->
@@ -58,6 +38,7 @@
 		<script src="resources/bower/jquery/dist/jquery.js"></script>
 		<script src="resources/bower/ng-grid/build/ng-grid.js"></script>
 		<script src="resources/bower/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="resources/bower/toastr/toastr.js"></script>
 		<script src="resources/bower/underscore/underscore.js"></script>
 		<script src="resources/bower/restangular/dist/restangular.js"></script>
 		<script src="resources/js/app.js"></script>

@@ -1,12 +1,36 @@
 'use strict';
 
 
-var myApp = angular.module('myApp', [
-    'ngResource',
-    'ngGrid',
-    'restangular'])
-    .config(function(RestangularProvider) {
+var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangular'])
+    .config(function($routeProvider, $locationProvider, RestangularProvider) {
+        $routeProvider.when('/',
+            {
+                templateUrl: '/partials/destList.html',
+                controller: 'DestListCtrl'
+            });
+        $routeProvider.when('/destination/:destinationID',
+            {
+                foo: 'bar',
+                templateUrl: '/partials/destEdit.html',
+                controller: 'DestEditCtrl',
+                resolve: {
+                    dest: function($route, destData) {
+                        var destID = $route.current.pathParams.destinationID;
+                        return destData.getDest(destID).get();
+                    }
+                }
+            });
+        //$routeProvider.otherwise({redirectTo: '/destinations'});
+        $locationProvider.html5Mode(true);
         RestangularProvider.setBaseUrl('/data');
+        RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
+
+            if (operation === 'put') {
+                elem._id = undefined;
+                return elem;
+            }
+            return elem;
+        })
     });
 
 

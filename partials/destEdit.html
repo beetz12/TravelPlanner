@@ -1,0 +1,22 @@
+
+<div>
+    <form name="editDestForm">
+        <div class="row-fluid">
+
+            <div class="span3">
+                <fieldset>
+                    <label for="name">name:</label>
+                    <input id="name" required placeholder="Name" ng-model="dest.name" />
+                    <label for="description">description:</label>
+                    <input id="description" required placeholder="Age" ng-model="dest.description" />
+                </fieldset>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6 offset3">
+                <div class="pull-right"><button class="btn btn-primary" ng-click="SaveDest()">Save</button></div>
+                <div class="pull-left"><button class="btn-default" ng-click="CancelEdit()">Cancel</button></div>
+            </div>
+        </div>
+    </form>
+</div>
