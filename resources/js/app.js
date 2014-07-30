@@ -1,16 +1,15 @@
 'use strict';
 
 
-var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangular', 'toastr'])
+var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangular'])
     .config(function($routeProvider, $locationProvider, RestangularProvider) {
-        $routeProvider.when('/',
-            {
+        $routeProvider
+            .when('/', {
                 templateUrl: '/partials/destList.html',
                 controller: 'DestListCtrl'
-            });
-        $routeProvider.when('/destination/:destinationID',
+            })
+            .when('/destination/:destinationID',
             {
-                foo: 'bar',
                 templateUrl: '/partials/destEdit.html',
                 controller: 'DestEditCtrl',
                 resolve: {
@@ -19,21 +18,11 @@ var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangula
                         return destData.getDest(destID).get();
                     }
                 }
-            });
+            })
+            .otherwise({redirectTo:'/'});
         //$routeProvider.otherwise({redirectTo: '/destinations'});
         $locationProvider.html5Mode(true);
-        RestangularProvider.setBaseUrl('/data');
-        RestangularProvider.setRequestInterceptor(function(elem, operation) {
-            if (operation === 'put') {
-
-                //elem._id = undefined;
-                //return elem;
-                window.location = '/';
-                //$location.path('/');
-                console.log(msg);
-            }
-            return elem;
-        })
+        RestangularProvider.setBaseUrl('http://localhost:3000/');
     });
 
 

@@ -2,13 +2,20 @@
 
 /* Controllers */
 
-  myApp.controller('DestListCtrl', function ($scope, $location, destData, notifier){
+  myApp.controller('DestListCtrl', function ($scope, $location, destData, Restangular, notifier){
 
-      destData.getAllDests().getList().then(function (destList)
+     /* destData.getAllDests().getList().then(function (destList)
       {
+          console.log(destList);
           $scope.travelDest = destList;
-      });
+      });*/
 
+
+      $scope.travelDest = Restangular.all('destinations').getList().$object;
+          //destData.getAllDests().getList().$object;
+
+      console.log('updated info:');
+      console.log($scope);
       $scope.gridOptions = { data: 'travelDest',
           columnDefs: [{ field: 'name', displayName: 'Name', width: "200px", resizable: false},
               { field: 'description', displayName: 'Description', width: "*" }],
@@ -21,11 +28,6 @@
               $location.path('/destination/' + rows[0].id);
           }
       };
-
-      $scope.notifierTest = function(){
-          notifier.notify('You have been notified');
-      };
-
   });
 
 
@@ -34,18 +36,21 @@ myApp.controller('DestEditCtrl', function($scope, $route, $location, Restangular
     var original = dest;
     $scope.dest = Restangular.copy(original);
 
-    var original = dest;
-    $scope.dest = Restangular.copy(original);
-
 
     $scope.SaveDest = function(){
-
-
-    $scope.dest.put().then(function() {
-        $location.path('/');
-    });
-
+        console.log($scope.dest);
+        $scope.dest.patch($scope.dest);
+        $location.url('/');
+        notifier.notifySuccess('Destination Updated.')
     }
+
+    $scope.destroy = function() {
+        original.remove().then(function() {
+            $location.path('/');
+            $route.reload();
+            notifier.notifyInfo('Destination Removed.')
+        });
+    };
 
     $scope.CancelEdit = function(){
         $location.path('/');

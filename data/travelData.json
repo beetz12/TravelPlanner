@@ -1,34 +1,35 @@
 {
-"travelDest": [
-{
-	"id": 1,
-	"name": "Florida Keys",
-	"description": "A coral cay archipelago in the southeast United States"
-},
-{
-	"id": 2,
-	"name": "Santa Fe",
-	"description": "The oldest state capital in the US."
-},
-{
-	"id": 3,
-	"name": "Santa Barbara",
-	"description": "A coral cay archipelago in the southeast United States"
-},
-{
-	"id": 4,
-	"name": "Molokai",
-	"description": "The fifth largest of the main Hawaiian Islands"
-},
-{
-	"id": 5,
-	"name": "Saint Augustine",
-	"description": "The oldest continuously occupied European established settlement in the continental US"
-},
-{
-	"id": 6,
-	"name": "Olympic National Park", 
-	"description": "Home of the northernmost rainforest in the US"
-}
-]
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Florida Keys",
+      "description": "A coral cay archipelago in the southeast United States"
+    },
+    {
+      "id": 2,
+      "name": "Santa Fee",
+      "description": "The oldest state capital in the US."
+    },
+    {
+      "id": 3,
+      "name": "Santa Barbara",
+      "description": "A coral cay archipelago in the southeast United States"
+    },
+    {
+      "id": 4,
+      "name": "Molokai",
+      "description": "The fifth largest of the main Hawaiian Islands"
+    },
+    {
+      "id": 5,
+      "name": "Saint Augustine",
+      "description": "The oldest continuously occupied European established settlement in the continental US"
+    },
+    {
+      "id": 6,
+      "name": "Olympic National Park",
+      "description": "Home of the northernmost rainforest in the US"
+    }
+  ],
+  "favicon.ico": []
 }

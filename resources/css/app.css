@@ -44,5 +44,31 @@ body{
     border: 1px solid rgb(212,212,212);
     height: 400px;
     width: 800px;
-
 }
+
+#editDestForm label {
+    margin-top: 15px;
+    display: block;
+}
+
+#editDestForm input {
+    width: 100%;
+}
+
+.ng-scope {
+    positon: static;
+}
+#editContainer {
+    display: inline-block;
+    width: 400px;
+    margin: 0 auto;
+}
+
+#btnDiv {
+    margin-top: 20px;
+}
+
+button {
+    margin-right: 20px;
+}
+

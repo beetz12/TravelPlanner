@@ -15,11 +15,6 @@ myApp.factory('destData', function($location, Restangular){
         getDest: function(destID) {
             return Restangular.one('destinations', destID);
         },
-       /* save: function(dest) {
-            dest.put().then(function() {
-                $location.path('/');
-            });
-        },*/
         getAllDests: function() {
             return Restangular.all('destinations');
         }
