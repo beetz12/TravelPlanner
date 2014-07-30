@@ -1,7 +1,7 @@
 'use strict';
 
 
-var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangular'])
+var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangular', 'toastr'])
     .config(function($routeProvider, $locationProvider, RestangularProvider) {
         $routeProvider.when('/',
             {
@@ -23,11 +23,14 @@ var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangula
         //$routeProvider.otherwise({redirectTo: '/destinations'});
         $locationProvider.html5Mode(true);
         RestangularProvider.setBaseUrl('/data');
-        RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
-
+        RestangularProvider.setRequestInterceptor(function(elem, operation) {
             if (operation === 'put') {
-                elem._id = undefined;
-                return elem;
+
+                //elem._id = undefined;
+                //return elem;
+                window.location = '/';
+                //$location.path('/');
+                console.log(msg);
             }
             return elem;
         })

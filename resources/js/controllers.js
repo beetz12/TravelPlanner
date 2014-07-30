@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-  myApp.controller('DestListCtrl', function ($scope, $location, destData, notifier, toastr){
+  myApp.controller('DestListCtrl', function ($scope, $location, destData, notifier){
 
       destData.getAllDests().getList().then(function (destList)
       {
@@ -28,56 +28,28 @@
 
   });
 
-/*myApp.controller('DestEditCtrl', function($scope, $route, $location, destData){
 
-    $route.current.locals.dest.get().then(function (myDest){
-        $scope.dest = myDest;
-    });
-
-    $scope.SaveDest = function(){
-        if(form.$valid) {
-            console.log(dest);
-            //destData.save(dest);
-            $scope.dest.put().then(function() {
-                $location.path('/');
-            });
-        }
-    }
-
-    $scope.CancelEdit = function(){
-        $location.path('/');
-    }
-
-
-});*/
-
-myApp.controller('DestEditCtrl', function($scope, $route, $location, Restangular, dest){
+myApp.controller('DestEditCtrl', function($scope, $route, $location, Restangular, notifier, dest){
 
     var original = dest;
     $scope.dest = Restangular.copy(original);
-    //dest.get().then(function (myDest){
-        var original = dest;
-        $scope.dest = Restangular.copy(original);
-    //});
-    console.log('foo');
-    //console.log(dest);
 
-
+    var original = dest;
+    $scope.dest = Restangular.copy(original);
 
 
     $scope.SaveDest = function(){
 
-            //console.log(dest);
-            //destData.save(dest);
-            $scope.dest.put().then(function() {
-                $location.path('/');
-            });
+
+    $scope.dest.put().then(function() {
+        $location.path('/');
+    });
 
     }
 
     $scope.CancelEdit = function(){
         $location.path('/');
+        notifier.notifyInfo('Edit Cancelled.')
     }
-
 
 });

@@ -29,9 +29,14 @@ myApp.factory('destData', function($location, Restangular){
 
 myApp.factory('notifier', function(toastr) {
     return {
-        notify: function(msg) {
+        notifySuccess: function(msg) {
             toastr.success(msg);
             console.log(msg);
+        },
+        notifyInfo: function(msg){
+            toastr.info(msg);
+            console.log(info);
         }
+
     }
 })
