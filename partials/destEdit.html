@@ -1,5 +1,5 @@
 
-<div id="editContainer">
+<div resizable id="editContainer" class="jumbotron" ng-style="{ 'margin-top': topMargin }">
     <form id="editDestForm">
         <div class="container-fluid well">
             <div class="span3">
@@ -33,6 +33,17 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function(){
+                $( window ).resize(function() {
+                    console.log('reisizing');
+                   /* $('.middle').css('top', function (index, curValue) {
+                        return parseInt(curValue, 10) + 10 + 'px';
+                    });*/
+                });
+            });
+        </script>
 
     </form>
 </div>

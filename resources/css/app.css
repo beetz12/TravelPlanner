@@ -33,9 +33,7 @@
 /* custom styles */
 
 
-body {
-    min-height: 600px;
-}
+
 #gridBtnContainer {
     margin:120px auto;
     height: 700px;
@@ -71,7 +69,7 @@ body {
     min-width: 320px;
     max-width: 800px;
     margin: auto;
-    min-height: 287px;
+    min-height: 383px;
 }
 
 #editContainer button {
@@ -86,9 +84,8 @@ body {
     margin-bottom: 20px;
 }
 
-#btnDiv {
-
+.jumbotron {
+    background-color: lightgrey;
 }
-
 
 
