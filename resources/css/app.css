@@ -4,6 +4,11 @@ body {
     min-height: 433px;
 }
 
+.noPadding {
+    padding: 0;
+}
+
+
 /* ng-grid styles */
 
 .gridStyle {
@@ -14,9 +19,8 @@ body {
 
 /* page-specific styles - destList.html */
 
-#gridBtnContainer {
-    margin:120px auto;
-    height: 700px;
+.myContainer {
+    margin:0 auto;
     width: 800px;
 }
 
