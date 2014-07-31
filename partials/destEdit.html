@@ -1,22 +1,39 @@
 
-<div id="editContainer" class="well">
+<div id="editContainer">
     <form id="editDestForm">
-        <div class="row-fluid">
-
+        <div class="container-fluid well">
             <div class="span3">
                 <fieldset>
-                    <label for="name">name:</label>
-                    <input id="name" required placeholder="Name" ng-model="dest.name" />
-                    <label for="description">description:</label>
-                    <input id="description" required placeholder="Age" ng-model="dest.description" />
+                    <legend>Edit Destination</legend>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 column">
+                            <label for="name">name:</label>
+                        </div>
+                        <div class="col-lg-9 col-md-6 col-sm-12 column">
+                            <input id="name" required placeholder="Name" ng-model="dest.name" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 column">
+                            <label for="description">description:</label>
+                        </div>
+                        <div class="col-lg-9 col-md-6 col-sm-12 column">
+                            <input id="description" required placeholder="Description" ng-model="dest.description" />
+                        </div>
+                    </div>
+
                 </fieldset>
             </div>
         </div>
-        <div id="btnDiv" class="row-fluid">
-            <div class="span6 offset3">
-                <div class="pull-left"><button class="btn btn-primary" ng-click="SaveDest()">Save</button></div>
-                <div class="pull-left"><button class="btn btn-danger" ng-click="CancelEdit()">Cancel</button></div>
+        <div class="container-fluid">
+            <div id="btnDiv" class="row-fluid">
+                <div class="span6">
+                    <div class="pull-right"><button class="btn btn-primary" ng-click="SaveDest()">Save</button></div>
+                    <!--<div class="pull-left"><button class="btn btn-danger" ng-click="CancelEdit()">Cancel</button></div>-->
+                </div>
             </div>
         </div>
+
     </form>
 </div>
+

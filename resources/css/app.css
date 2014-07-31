@@ -32,12 +32,15 @@
 
 /* custom styles */
 
-body{
-    margin-top:40px;
+
+body {
+    min-height: 600px;
 }
 #gridBtnContainer {
+    margin:120px auto;
     height: 700px;
     width: 800px;
+
 }
 
 .gridStyle {
@@ -47,7 +50,6 @@ body{
 }
 
 #editDestForm label {
-    margin-top: 15px;
     display: block;
 }
 
@@ -55,20 +57,38 @@ body{
     width: 100%;
 }
 
+#editDestForm .well{
+    background-color: #grey;
+    margin-bottom: 0px;
+}
+
 .ng-scope {
-    positon: static;
+
 }
 #editContainer {
-    display: inline-block;
-    width: 400px;
-    margin: 0 auto;
+    background-color: #grey;
+    display: block;
+    min-width: 320px;
+    max-width: 800px;
+    margin: auto;
+    min-height: 287px;
+}
+
+#editContainer button {
+
 }
 
 #btnDiv {
     margin-top: 20px;
 }
 
-button {
-    margin-right: 20px;
+.row {
+    margin-bottom: 20px;
 }
+
+#btnDiv {
+
+}
+
+
 

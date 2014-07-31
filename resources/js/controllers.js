@@ -4,18 +4,10 @@
 
   myApp.controller('DestListCtrl', function ($scope, $location, destData, Restangular, notifier){
 
-     /* destData.getAllDests().getList().then(function (destList)
-      {
-          console.log(destList);
-          $scope.travelDest = destList;
-      });*/
-
-
       $scope.travelDest = Restangular.all('destinations').getList().$object;
-          //destData.getAllDests().getList().$object;
 
-      console.log('updated info:');
-      console.log($scope);
+      console.log(Restangular.all('destinations').getList());
+
       $scope.gridOptions = { data: 'travelDest',
           columnDefs: [{ field: 'name', displayName: 'Name', width: "200px", resizable: false},
               { field: 'description', displayName: 'Description', width: "*" }],
@@ -31,7 +23,7 @@
   });
 
 
-myApp.controller('DestEditCtrl', function($scope, $route, $location, Restangular, notifier, dest){
+myApp.controller('DestEditCtrl', function($scope, $location, Restangular, notifier, dest){
 
     var original = dest;
     $scope.dest = Restangular.copy(original);
@@ -39,15 +31,15 @@ myApp.controller('DestEditCtrl', function($scope, $route, $location, Restangular
 
     $scope.SaveDest = function(){
         console.log($scope.dest);
-        $scope.dest.patch($scope.dest);
-        $location.url('/');
-        notifier.notifySuccess('Destination Updated.')
+        $scope.dest.patch($scope.dest).then(function() {
+            $location.path('/');
+            notifier.notifySuccess('Destination Updated.')
+        });
     }
 
     $scope.destroy = function() {
         original.remove().then(function() {
             $location.path('/');
-            $route.reload();
             notifier.notifyInfo('Destination Removed.')
         });
     };
