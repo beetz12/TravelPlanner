@@ -1,24 +1,30 @@
 
 <div resizable id="editContainer" class="jumbotron" ng-style="{ 'margin-top': topMargin }">
-    <form id="editDestForm">
+    <form id="editDestForm" name="myForm">
         <div class="container-fluid well">
             <div class="span3">
                 <fieldset>
                     <legend>Edit Destination</legend>
-                    <div class="row">
+                    <div class="row control-group" ng-class="{error: myForm.name.$invalid}">
                         <div class="col-sm-12 column">
                             <label for="name">name:</label>
                         </div>
                         <div class="col-sm-12 column">
-                            <input id="name" required placeholder="Name" ng-model="dest.name" />
+                            <input id="name" name="name" required placeholder="Name" ng-model="dest.name" />
+                        </div>
+                        <div ng-show="myForm.name.$error.required" class="col-sm-12 column help-inline">
+                            Required
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row control-group" ng-class="{error: myForm.description.$invalid}">
                         <div class="col-sm-12 column">
                             <label for="description">description:</label>
                         </div>
                         <div class="col-sm-12 column">
-                            <input id="description" required placeholder="Description" ng-model="dest.description" />
+                            <input id="description" name="description" required placeholder="Description" ng-model="dest.description" />
+                        </div>
+                        <div ng-show="myForm.description.$error.required" class="col-sm-12 column help-inline">
+                            Required
                         </div>
                     </div>
 
@@ -28,7 +34,7 @@
         <div class="container-fluid noPadding">
             <div id="btnDiv" class="row-fluid">
                 <div class="span6">
-                    <div class="pull-right"><button class="btn btn-primary" ng-click="SaveDest()">Save</button></div>
+                    <div class="pull-right"><button class="btn btn-primary" ng-click="SaveDest()" ng-disabled="isClean() || myForm.$invalid">OK</button></div>
                     <!--<div class="pull-left"><button class="btn btn-danger" ng-click="CancelEdit()">Cancel</button></div>-->
                 </div>
             </div>

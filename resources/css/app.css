@@ -9,6 +9,10 @@ body {
 }
 
 
+.control-group.error .control-label, .control-group.error .help-block, .control-group.error .help-inline {
+    color: #b94a48;
+}
+
 /* ng-grid styles */
 
 .gridStyle {

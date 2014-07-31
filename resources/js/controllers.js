@@ -37,6 +37,10 @@ myApp.controller('DestEditCtrl', function($scope, $location, Restangular, notifi
         });
     }
 
+    $scope.isClean = function() {
+        return angular.equals(original, $scope.dest);
+    }
+
     $scope.destroy = function() {
         original.remove().then(function() {
             $location.path('/');
