@@ -1,7 +1,7 @@
 
 /* general styles */
 body {
-    min-height: 433px;
+    min-height: 460px;
 }
 
 .noPadding {
@@ -38,6 +38,7 @@ body {
     max-width: 800px;
     margin: auto;
     min-height: 383px;
+    height: 410px;
 }
 
 #editContainer.jumbotron {
