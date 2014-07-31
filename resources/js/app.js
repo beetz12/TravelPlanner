@@ -1,6 +1,5 @@
 'use strict';
 
-
 var myApp = angular.module('myApp', ['ngResource','ngGrid','ngRoute','restangular'])
     .config(function($routeProvider, $locationProvider, RestangularProvider) {
         $routeProvider

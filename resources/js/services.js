@@ -8,8 +8,6 @@
 myApp.value('version', '0.1');
 myApp.value('toastr', toastr);
   
-
-
 myApp.factory('destData', function($location, Restangular){
     return {
         getDest: function(destID) {
