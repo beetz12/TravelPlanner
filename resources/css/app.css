@@ -33,7 +33,9 @@
 /* custom styles */
 
 
-
+body {
+    min-height: 433px;
+}
 #gridBtnContainer {
     margin:120px auto;
     height: 700px;
